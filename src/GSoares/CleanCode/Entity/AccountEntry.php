@@ -1,6 +1,9 @@
 <?php
-namespace GSoares/CleanCode/Entity;
+namespace GSoares\CleanCode\Entity;
 
+/**
+ * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
+ */
 class AccountEntry
 {
     /**

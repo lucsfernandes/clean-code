@@ -1,194 +1,28 @@
 {
-    "name": "flexy/ftwo",
+    "name": "clean-code",
     "type": "project",
-    "description": "Flexy E-Commerce Platform v2",
+    "description": "Clean code sample project",
     "authors": [
         {
-            "name": "Bruno Silveira",
-            "email": "bruno.silveira@flexy.com.br",
+            "name": "Gabriel Felipe Soares",
+            "email": "gabrielfs7@gmail.com",
             "role": "Developer"
-        },
-        {
-            "name": "Gabriel Soares",
-            "email": "gabriel.soares@flexy.com.br",
-            "role": "Developer"
-        },
-        {
-            "name": "Jean Carlos Gonçalves",
-            "email": "jean.goncalves@flexy.com.br",
-            "role": "Developer"
-        },
-        {
-            "name": "Frederico Dubiel",
-            "email": "fred.dubiel@flexy.com.br",
-            "role": "Developer"
-        },
-        {
-            "name": "Jean Carlos Silva",
-            "email": "jean.silva@flexy.com.br",
-            "role": "Developer"
-        },
-        {
-            "name": "Gilberto Theves",
-            "email": "gilberto.theves@flexy.com.br",
-            "role": "Quality Assurance"
-        },
-        {
-            "name": "Rafaela Gonçalves",
-            "email": "rafaela.goncalves@flexy.com.br",
-            "role": "Support Coordinator"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "flexy/ftwo-report",
-                "version": "master",
-                "source": {
-                    "url": "git@bitbucket.org:flexy/FTWO-REPORT.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "flexy/tax-substitution",
-                "version": "master",
-                "source": {
-                    "url": "git@bitbucket.org:flexy/tax-substitution.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "fred-dubiel/api-doc-bundle",
-                "version": "master",
-                "type": "typo3-flow-package",
-                "source": {
-                    "url": "https://github.com/fred-dubiel/NelmioApiDocBundle.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "require": {
-                    "composer/installers": "~1.0"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "jeancsil/Elastica",
-                "version": "master",
-                "source": {
-                    "url": "https://github.com/jeancsil/Elastica.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
         }
     ],
     "require": {
-        "php":                                  ">=5.5.0",
-        "symfony/icu":                          "1.1.0",
-        "symfony/symfony":                      "2.4.*",
-        "symfony/assetic-bundle":               "~2.3",
-        "symfony/monolog-bundle":               "~2.3",
-        "doctrine/orm":                         ">=2.2.3",
-        "doctrine/doctrine-bundle":             "1.3.*@dev",
-        "doctrine/doctrine-migrations-bundle":  "v2.1.x-dev",
-        "doctrine/migrations":                  "v1.0.0-alpha3",
-        "doctrine/doctrine-cache-bundle": 	    "1.0.*@dev",
-        "sensio/distribution-bundle":           "dev-master",
-        "sensio/framework-extra-bundle":        "v3.0.9",
-        "sensio/generator-bundle":              "~2.3",
-        "twig/extensions":                      "1.0.*",
-        "friendsofsymfony/rest-bundle":         "1.2.*@dev",
-        "symfony/swiftmailer-bundle":           "2.2.*@dev",
-        "stof/doctrine-extensions-bundle":      "dev-master",
-        "white-october/pagerfanta-bundle":      "1.0.*@dev",
-        "incenteev/composer-parameter-handler": "~2.0",
-        "fzaninotto/faker":                     "1.2.*@dev",
-        "jms/serializer-bundle":                "0.12.*",
-        "aws/aws-sdk-php":                      "v2.8.9",
-        "guzzle/guzzle":                        "v3.7.3",
-        "respect/validation":                   "0.8.*@dev",
-        "knplabs/knp-paginator-bundle":         "dev-master",
-        "imagine/imagine":                      "0.6.*@dev",
-        "gregwar/image":                        "dev-master",
-        "fred-dubiel/api-doc-bundle":           "dev-master",
-        "leafo/lessphp":                        "0.4.*@dev",
-        "mpdf/mpdf":                            "v6.1.2",
-        "michelf/php-markdown":                 "~1.4",
-        "doctrine/doctrine-fixtures-bundle":    "2.2.*@dev",
-        "beberlei/DoctrineExtensions":          "dev-master",
-        "flexy/FTWO-REPORT":                    "1.0",
-        "knplabs/knp-snappy-bundle":            "dev-master",
-        "gabrielfs7/brasil-utils":              "1.0.*@dev",
-        "gabrielfs7/google-location":           "dev-master",
-        "mmoreram/gearman-bundle":              "2.3.*@dev",
-        "flexy/tax-substitution":               "dev-master",
-        "liip/doctrine-cache-bundle":           "~1.0",
-        "jeangnc/twig-analyser":                "dev-master",
-        "jeancsil/Elastica":                    "dev-master",
-        "google/apiclient":                     "1.1.3",
-        "doctrine/mongodb" :                    "1.2.1",
-        "doctrine/mongodb-odm" :                "1.0.5",
-        "doctrine/mongodb-odm-bundle" :         "3.0.2"
+        "php": ">=5.5.0"
     },
     "require-dev": {
-        "pdepend/pdepend": "1.1.3",
-        "phpunit/phpunit": "4.0.*",
-        "squizlabs/php_codesniffer": "dev-master",
-        "phpmd/phpmd": "1.5.0",
-        "theseer/fxsl": "1.0.*@dev",
-        "doctrine/data-fixtures": "1.0.*@dev",
-        "phing/phing": "2.8.2"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Flexy\\Ftwo\\Bundle\\CommonBundle\\Command\\Proxy\\Generator::setAutoGenerateProxyClasses",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Flexy\\Ftwo\\Bundle\\CommonBundle\\Command\\Proxy\\Generator::setAutoGenerateProxyClasses",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Flexy\\Ftwo\\Bundle\\CommonBundle\\Command\\Proxy\\Generator::setAutoGenerateProxyClasses"
-        ],
-        "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
-        ]
+        "squizlabs/php_codesniffer" : "2.7.0",
+        "phpunit/phpunit": "4.8.27",
+        "phpmd/phpmd": "2.4.3"
     },
     "autoload": {
         "psr-0": {
-            "": "src/",
-            "Flexy\\Ftwo\\Report\\": "vendor/flexy/ftwo-report/src/",
-            "Flexy\\Ftwo\\TaxSubstitution\\": "vendor/flexy/tax-substitution/src/",
-            "Nelmio\\ApiDocBundle\\": "vendor/nelmio/api-doc-bundle/",
-            "Elastica\\": "vendor/jeancsil/Elastica/lib/"
+            "": "src/"
         }
     },
     "config": {
         "bin-dir": "bin"
-    },
-    "extra": {
-        "symfony-app-dir": "app",
-        "symfony-web-dir": "web",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        },
-        "installer-paths": {
-            "vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle": ["shama/ftp", "fred-dubiel/api-doc-bundle"]
-        }
     }
 }
