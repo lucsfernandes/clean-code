@@ -1,5 +1,5 @@
 <?php
-namespace GSoares/CleanCode/Factory;
+namespace GSoares/CleanCode/Repository;
 
 class CustomerRepository
 {
