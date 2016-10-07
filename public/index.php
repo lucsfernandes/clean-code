@@ -9,6 +9,9 @@
             <li>
                 <a href="phpdoc">Documentation (PHPDoc)</a>
             </li>
+            <li>
+                <a href="phpmd">Mess Detector (PHPMD)</a>
+            </li>
         </ul>
     </body>
 </html>
