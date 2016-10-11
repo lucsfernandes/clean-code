@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.0",
+        "symfony/dependency-injection" : "v2.8.12"
     },
     "require-dev": {
         "squizlabs/php_codesniffer" : "2.7.0",
