@@ -89,14 +89,6 @@ class Account
     }
 
     /**
-     * @param AccountEntry $accountEntry
-     */
-    public function addEntry(AccountEntry $accountEntry)
-    {
-        $this->history->append($accountEntry);
-    }
-
-    /**
      * @return Customer
      */
     public function getCustomer()
