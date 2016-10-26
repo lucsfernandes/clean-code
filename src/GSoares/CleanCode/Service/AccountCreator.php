@@ -1,6 +1,6 @@
 <?php
 
-namespace GSoares\CleanCode\Factory;
+namespace GSoares\CleanCode\Service;
 
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>

@@ -13,6 +13,7 @@
         "php": ">=5.5.0",
         "symfony/dependency-injection" : "v3.1.5",
         "symfony/http-kernel" : "v3.1.5",
+        "symfony/templating" : "v3.1.5",
         "symfony/routing" : "v3.1.5"
     },
     "require-dev": {

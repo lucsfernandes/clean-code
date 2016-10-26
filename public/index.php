@@ -10,8 +10,16 @@ use \Symfony\Component\Routing\RequestContext;
 use \Symfony\Component\Routing\Matcher\UrlMatcher;
 use \Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use \Symfony\Component\HttpKernel\Controller\ArgumentResolver;
-use \GSoares\CleanCode\Application\Controller\IndexController;
 use \Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use \Symfony\Component\DependencyInjection\ContainerBuilder;
+use \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use \Symfony\Component\Config\FileLocator;
+
+$loader = new XmlFileLoader(
+    $container = new ContainerBuilder(),
+    new FileLocator(__DIR__ . '/../di')
+);
+$loader->load('all.xml');
 
 $request = Request::createFromGlobals();
 
@@ -20,7 +28,7 @@ $route = new Route(
     [
         'year' => null,
         '_controller' => [
-            new IndexController(),
+            $container->get('controller.index'),
             'indexAction'
         ],
     ]
