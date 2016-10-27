@@ -7,13 +7,16 @@ use \Symfony\Component\DependencyInjection\ContainerBuilder;
 use \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use \Symfony\Component\Config\FileLocator;
 
-$fileLocator = new FileLocator(__DIR__ . '/../di');
-$container = new ContainerBuilder();
+$fileLocator = new FileLocator(realpath(__DIR__ . '/../di'));
+$containerBuilder = new ContainerBuilder();
 
-$loader = new XmlFileLoader($container, $fileLocator);
+$loader = new XmlFileLoader($containerBuilder, $fileLocator);
 $loader->load('all.xml');
 
-$loader = $container->get('app.controller_loader');
-$loader->setContainer($container);
+$containerBuilder->set('container', $containerBuilder);
+$containerBuilder->compile();
+
+$loader = $containerBuilder->get('app.controller_loader');
+$loader->setContainer($containerBuilder);
 $loader->loadResponse()
     ->send();

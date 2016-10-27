@@ -14,7 +14,8 @@
         "symfony/dependency-injection" : "v3.1.5",
         "symfony/http-kernel" : "v3.1.5",
         "symfony/templating" : "v3.1.5",
-        "symfony/routing" : "v3.1.5"
+        "symfony/routing" : "v3.1.5",
+        "twig/twig" : "~1.27.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer" : "3.0.0RC1",

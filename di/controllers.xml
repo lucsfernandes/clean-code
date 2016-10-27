@@ -3,11 +3,16 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="controller.index" class="GSoares\CleanCode\Application\Controller\IndexController">
+        <service abstract="true" id="controller.abstract" class="GSoares\CleanCode\Application\Controller\AbstractController">
+            <call method="setContainer">
+                <argument type="service" id="container" />
+            </call>
         </service>
-        <service id="controller.account" class="GSoares\CleanCode\Application\Controller\AccountController">
+        <service id="controller.index" parent="controller.abstract" class="GSoares\CleanCode\Application\Controller\IndexController">
         </service>
-        <service id="controller.account_entry" class="GSoares\CleanCode\Application\Controller\AccountEntryController">
+        <service id="controller.account" parent="controller.abstract" class="GSoares\CleanCode\Application\Controller\AccountController">
+        </service>
+        <service id="controller.account_entry" parent="controller.abstract" class="GSoares\CleanCode\Application\Controller\AccountEntryController">
         </service>
     </services>
 </container>

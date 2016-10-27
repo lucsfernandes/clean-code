@@ -7,13 +7,13 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class IndexController
+class IndexController extends AbstractController
 {
     /**
      * @param Request $request
      */
     public function indexAction(Request $request)
     {
-        exit('TEST...');
+        return $this->renderResponse('base/base.html.twig');
     }
 }

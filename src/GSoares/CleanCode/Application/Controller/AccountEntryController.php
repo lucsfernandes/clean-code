@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class AccountEntryController
+class AccountEntryController extends AbstractController
 {
     /**
      * @param Request $request
