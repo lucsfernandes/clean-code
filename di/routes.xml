@@ -6,4 +6,10 @@
     <route id="index" path="/">
         <default key="_controller">controller.index:indexAction</default>
     </route>
+    <route id="accounts" path="/accounts">
+        <default key="_controller">controller.account:listAction</default>
+    </route>
+    <route id="account_entries" path="/accounts/{id}/entries">
+        <default key="_controller">controller.account_entry:listAction</default>
+    </route>
 </routes>

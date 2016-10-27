@@ -5,5 +5,9 @@
     <services>
         <service id="controller.index" class="GSoares\CleanCode\Application\Controller\IndexController">
         </service>
+        <service id="controller.account" class="GSoares\CleanCode\Application\Controller\AccountController">
+        </service>
+        <service id="controller.account_entry" class="GSoares\CleanCode\Application\Controller\AccountEntryController">
+        </service>
     </services>
 </container>

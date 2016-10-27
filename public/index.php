@@ -15,4 +15,5 @@ $loader->load('all.xml');
 
 $loader = $container->get('app.controller_loader');
 $loader->setContainer($container);
-$loader->loadResponse();
+$loader->loadResponse()
+    ->send();
