@@ -3,7 +3,10 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="service.account.creator" class="GSoares\CleanCode\Service\AccountCreator">
+        <service id="service.account_creator" class="GSoares\CleanCode\Service\AccountCreator">
+        </service>
+        <service id="app.controller_loader" class="GSoares\CleanCode\Application\Controller\Loader">
+            <tag name="controller.loader" />
         </service>
     </services>
 </container>
