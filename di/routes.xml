@@ -9,6 +9,12 @@
     <route id="accounts" path="/accounts">
         <default key="_controller">controller.account:listAction</default>
     </route>
+    <route id="account_create" path="/accounts/create">
+        <default key="_controller">controller.account:createAction</default>
+    </route>
+    <route id="account_edit" path="/accounts/{id}/edit">
+        <default key="_controller">controller.account:editAction</default>
+    </route>
     <route id="account_entries" path="/accounts/{id}/entries">
         <default key="_controller">controller.account_entry:listAction</default>
     </route>

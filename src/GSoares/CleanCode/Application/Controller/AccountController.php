@@ -14,6 +14,22 @@ class AccountController extends AbstractController
      */
     public function listAction(Request $request)
     {
-        exit('>>>>>: ' . __CLASS__);
+        return $this->renderResponse('account/list.html.twig');
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function createAction(Request $request)
+    {
+        return $this->renderResponse('account/form.html.twig');
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function editAction(Request $request)
+    {
+        return $this->renderResponse('account/form.html.twig');
     }
 }

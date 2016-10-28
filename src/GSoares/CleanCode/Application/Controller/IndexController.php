@@ -14,6 +14,6 @@ class IndexController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        return $this->renderResponse('base/base.html.twig');
+        return $this->renderResponse('index.html.twig');
     }
 }

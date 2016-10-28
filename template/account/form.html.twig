@@ -1,0 +1,16 @@
+{% extends 'base/base.html.twig' %}
+{% block title %}<i class="glyphicon glyphicon-plus-sign"></i> Create Account{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-12">
+                {% include 'account/customer-form.html.twig' %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-12">
+                {% include 'account/account-form.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
