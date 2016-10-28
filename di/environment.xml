@@ -8,10 +8,9 @@
         <parameter key="database.host">localhost</parameter>
         <parameter key="database.name">cleancode</parameter>
         <parameter key="database.user">root</parameter>
-        <parameter key="database.pass">root</parameter>
+        <parameter key="database.pass">flexy</parameter>
 
         <!-- Doctrine -->
-        <parameter key="doctrine.entity.dir">src/GSoares/CleanCode/Entity</parameter>
         <parameter key="doctrine.proxy.dir">tmp/proxy/doctrine</parameter>
         <parameter key="doctrine.proxy.namespace">GSoares\CleanCode\Proxy</parameter>
         <parameter key="doctrine.proxy.auto_generate">true</parameter>

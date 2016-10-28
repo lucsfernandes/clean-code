@@ -4,9 +4,12 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="doctrine.cache" class="\Doctrine\Common\Cache\ArrayCache" />
+        <service id="doctrine.mapping.locator" class="Doctrine\Common\Persistence\Mapping\Driver\DefaultFileLocator">
+            <argument>db/Doctrine/Mapping</argument>
+        </service>
+
         <service id="doctrine.mapping.driver" class="Doctrine\ORM\Mapping\Driver\XmlDriver">
-            <factory service="doctrine.config" method="newDefaultAnnotationDriver"/>
-            <argument>%doctrine.entity.dir%</argument>
+            <argument type="service" id="doctrine.mapping.locator"/>
         </service>
         <service id="doctrine.config" class="Doctrine\ORM\Configuration">
             <call method="setMetadataCacheImpl">

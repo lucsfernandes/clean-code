@@ -4,3 +4,6 @@
 /public/phpdoc/*
 /public/phpmd/*
 !/bin/generate-doc.sh
+!/bin/generate-md.sh
+!/bin/migrations-diff.sh
+!/bin/migrations-migrate.sh
