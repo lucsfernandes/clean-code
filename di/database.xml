@@ -5,7 +5,10 @@
     <services>
         <service id="doctrine.cache" class="\Doctrine\Common\Cache\ArrayCache" />
         <service id="doctrine.mapping.locator" class="Doctrine\Common\Persistence\Mapping\Driver\DefaultFileLocator">
-            <argument>db/Doctrine/Mapping</argument>
+            <argument type="collection">
+                <argument>db/Doctrine/Mapping</argument>
+            </argument>
+            <argument>.dcm.xml</argument>
         </service>
 
         <service id="doctrine.mapping.driver" class="Doctrine\ORM\Mapping\Driver\XmlDriver">

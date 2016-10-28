@@ -8,9 +8,19 @@ namespace GSoares\CleanCode\Entity;
 class Account
 {
     /**
-     * @var string
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var int
      */
     private $number;
+
+    /**
+     * @var int
+     */
+    private $agency;
 
     /**
      * @var float
@@ -47,6 +57,24 @@ class Account
     {
         $this->number = $number;
     }
+
+    /**
+     * @return int
+     */
+    public function getAgency()
+    {
+        return $this->agency;
+    }
+
+    /**
+     * @param int $agency
+     */
+    public function setAgency($agency)
+    {
+        $this->agency = $agency;
+    }
+
+
 
     /**
      * @return float

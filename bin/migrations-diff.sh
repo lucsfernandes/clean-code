@@ -1,2 +1,2 @@
 #!/bin/bash
-bin/doctrine migrations:diff
+bin/doctrine migrations:diff --verbose
