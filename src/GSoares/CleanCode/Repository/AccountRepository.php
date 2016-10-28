@@ -1,12 +1,12 @@
 <?php
+
 namespace GSoares\CleanCode\Repository;
+
+use Doctrine\ORM\EntityRepository;
 
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class AccountRepository
+class AccountRepository extends EntityRepository
 {
-    public function find()
-    {
-    }
 }

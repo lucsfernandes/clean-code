@@ -6,5 +6,8 @@
         <import resource="controllers.xml" />
         <import resource="services.xml" />
         <import resource="template.xml" />
+        <import resource="database.xml" />
+        <import resource="repository.xml" />
+        <import resource="environment.xml" />
     </imports>
 </container>
