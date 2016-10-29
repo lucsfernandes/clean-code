@@ -6,6 +6,10 @@ namespace GSoares\CleanCode\Entity;
  */
 class AccountEntry
 {
+    use IdTrait;
+    use ModificationTimeTrait;
+    use AccountTrait;
+    
     /**
      * @var string
      */
@@ -14,17 +18,7 @@ class AccountEntry
     /**
      * @var float
      */
-    private $value;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    /**
-     * @var Account
-     */
-    private $account;
+    private $amount;
 
     /**
      * @return string
@@ -45,48 +39,16 @@ class AccountEntry
     /**
      * @return float
      */
-    public function getValue()
+    public function getAmount()
     {
-        return $this->value;
+        return $this->amount;
     }
 
     /**
-     * @param float $value
+     * @param float $amount
      */
-    public function setValue($value)
+    public function setAmount($amount)
     {
-        $this->value = $value;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return Account
-     */
-    public function getAccount()
-    {
-        return $this->account;
-    }
-
-    /**
-     * @param Account $account
-     */
-    public function setAccount(Account $account)
-    {
-        $this->account = $account;
+        $this->amount = $amount;
     }
 }

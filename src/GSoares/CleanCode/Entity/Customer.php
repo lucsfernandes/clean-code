@@ -6,6 +6,10 @@ namespace GSoares\CleanCode\Entity;
  */
 class Customer
 {
+    use IdTrait;
+    use ModificationTimeTrait;
+    use AccountTrait;
+
     /**
      * @var string
      */
@@ -15,16 +19,6 @@ class Customer
      * @var string
      */
     private $name;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    /**
-     * @var Account
-     */
-    private $account;
 
     /**
      * @return string
@@ -56,37 +50,5 @@ class Customer
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt(\DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return Account
-     */
-    public function getAccount()
-    {
-        return $this->account;
-    }
-
-    /**
-     * @param Account $account
-     */
-    public function setAccount(Account $account)
-    {
-        $this->account = $account;
     }
 }

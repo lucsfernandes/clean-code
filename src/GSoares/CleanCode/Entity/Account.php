@@ -2,15 +2,15 @@
 
 namespace GSoares\CleanCode\Entity;
 
+use Doctrine\Common\Collections\Collection;
+
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
 class Account
 {
-    /**
-     * @var int
-     */
-    private $id;
+    use IdTrait;
+    use ModificationTimeTrait;
 
     /**
      * @var int
@@ -28,19 +28,14 @@ class Account
     private $balance;
 
     /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    /**
-     * @var \ArrayObject
-     */
-    private $history;
-
-    /**
      * @var Customer
      */
     private $customer;
+
+    /**
+     * @var Collection
+     */
+    private $entries;
 
     /**
      * @return string
@@ -74,8 +69,6 @@ class Account
         $this->agency = $agency;
     }
 
-
-
     /**
      * @return float
      */
@@ -93,27 +86,19 @@ class Account
     }
 
     /**
-     * @return \DateTime
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCreatedAt()
+    public function getEntries()
     {
-        return $this->createdAt;
+        return $this->entries;
     }
 
     /**
-     * @param \DateTime $createdAt
+     * @param \Doctrine\Common\Collections\Collection $entries
      */
-    public function setCreatedAt($createdAt)
+    public function setEntries(Collection $entries)
     {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return \ArrayObject
-     */
-    public function getHistory()
-    {
-        return $this->history;
+        $this->entries = $entries;
     }
 
     /**

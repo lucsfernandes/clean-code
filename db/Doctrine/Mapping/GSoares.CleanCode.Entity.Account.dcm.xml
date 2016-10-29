@@ -5,11 +5,21 @@
         xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
 			                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
     <entity name="GSoares\CleanCode\Entity\Account" table="Account" repository-class="GSoares\CleanCode\Entity\Repository\AccountRepository">
+        <indexes>
+            <index columns="customer_id" name="UNIQUE_CUSTOMER_ACCOUNT"/>
+            <index columns="agency,number" name="UNIQUE_ACCOUNT"/>
+        </indexes>
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="agency" column="agency" type="integer" />
-        <field name="number" column="number" type="integer" />
-        <field name="balance" column="balance" type="float" />
+        <field name="agency" column="agency" type="integer" nullable="false"/>
+        <field name="number" column="number" type="integer" nullable="false"/>
+        <field name="balance" column="balance" type="float" nullable="false"/>
+        <field name="createdAt" column="created_at" type="datetime" nullable="false"/>
+        <field name="updatedAt" column="updated_at" type="datetime" />
+        <one-to-one field="customer" target-entity="GSoares\CleanCode\Entity\Customer" inversed-by="account">
+            <join-column name="customer_id" referenced-column-name="id" nullable="false"/>
+        </one-to-one>
+        <one-to-many field="entries" target-entity="GSoares\CleanCode\Entity\AccountEntry" mapped-by="account" />
     </entity>
 </doctrine-mapping>
