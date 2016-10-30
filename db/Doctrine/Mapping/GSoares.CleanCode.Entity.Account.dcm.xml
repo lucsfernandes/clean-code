@@ -16,7 +16,7 @@
         <field name="number" column="number" type="integer" nullable="false"/>
         <field name="balance" column="balance" type="float" nullable="false"/>
         <field name="createdAt" column="created_at" type="datetime" nullable="false"/>
-        <field name="updatedAt" column="updated_at" type="datetime" />
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
         <one-to-one field="customer" target-entity="GSoares\CleanCode\Entity\Customer" inversed-by="account">
             <join-column name="customer_id" referenced-column-name="id" nullable="false"/>
         </one-to-one>

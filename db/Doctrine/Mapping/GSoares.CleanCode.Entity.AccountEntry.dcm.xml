@@ -10,6 +10,8 @@
         </id>
         <field name="description" column="description" type="string" nullable="false"/>
         <field name="amount" column="amount" type="float" nullable="false"/>
+        <field name="createdAt" column="created_at" type="datetime" nullable="false"/>
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
         <many-to-one field="account" target-entity="GSoares\CleanCode\Entity\Account" inversed-by="entries">
             <join-column name="account_id" referenced-column-name="id" nullable="false"/>
         </many-to-one>

@@ -8,7 +8,7 @@
         <parameter key="database.host">localhost</parameter>
         <parameter key="database.name">cleancode</parameter>
         <parameter key="database.user">root</parameter>
-        <parameter key="database.pass">flexy</parameter>
+        <parameter key="database.pass"></parameter>
 
         <!-- Doctrine -->
         <parameter key="doctrine.proxy.dir">tmp/proxy/doctrine</parameter>
