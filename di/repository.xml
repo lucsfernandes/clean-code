@@ -5,7 +5,11 @@
     <services>
         <service id="repository.account" class="GSoares\CleanCode\Repository\AccountRepository">
             <factory service="doctrine.entity_manager" method="getRepository" />
-            <argument>GSoares/CleanCode/Entity/Account</argument>
+            <argument>GSoares\CleanCode\Entity\Account</argument>
+        </service>
+        <service id="repository.account_entry" class="GSoares\CleanCode\Repository\AccountRepository">
+            <factory service="doctrine.entity_manager" method="getRepository" />
+            <argument>GSoares\CleanCode\Entity\AccountEntry</argument>
         </service>
     </services>
 </container>

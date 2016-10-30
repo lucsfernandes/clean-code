@@ -50,7 +50,7 @@ class Loader
         } catch (ResourceNotFoundException $e) {
             return new Response('Not Found', 404);
         } catch (\Exception $e) {
-            return new Response("An error occurred: {$e->getMessage()}", 500);
+            throw $e;
         }
     }
 

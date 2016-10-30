@@ -1,16 +1,33 @@
 {% extends 'base/base.html.twig' %}
-{% block title %}<i class="glyphicon glyphicon-plus-sign"></i> Create Account{% endblock %}
+{% block title %}
+    <i class="glyphicon glyphicon-user"></i> {{ account.id ? 'Update' : 'Create' }} Account
+{% endblock %}
 {% block content %}
     <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-12">
-                {% include 'account/customer-form.html.twig' %}
-            </div>
-        </div>
         <div class="col-md-6">
             <div class="col-md-12">
                 {% include 'account/account-form.html.twig' %}
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="col-md-12">
+                {% include 'account/customer-form.html.twig' with { customer : account.customer } %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <div class="text-right">
+        <div class="btn-group" role="group" aria-label="...">
+            <a class="btn btn-default" href="/accounts" title="Accounts" role="button">
+                Account list
+            </a>
+            <a class="btn btn-warning" href="/accounts/{{ account.id }}/entries" title="Entries" role="button">
+                Entries
+            </a>
+        </div>
+        <button class="btn btn-primary" title="Save" role="button">
+            Save
+        </button>
     </div>
 {% endblock %}

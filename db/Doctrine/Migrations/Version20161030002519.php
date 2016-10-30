@@ -71,14 +71,14 @@ class Version20161030002519 extends AbstractMigration
         $balance = 0;
 
         for ($i = 1; $i <= rand(3, 10); $i++) {
-            $amount = rand(3.5, 1000.80);
+            $amount = rand(3, 1000) + ('0.' . rand(10, 99));
             $balance += $amount;
             $description = "CREDIT ENTRY - $amount";
             $this->addSql("INSERT INTO AccountEntry(account_id, description, amount, created_at) VALUES($accountId, '$description', $amount, '$createdAt') ");
         }
 
         for ($i = 1; $i <= rand(1, 3); $i++) {
-            $amount = rand(3.5, 500.80) * -1;
+            $amount = rand(3, 500) * -1 + ('0.' . rand(10, 99));
             $balance += $amount;
             $description = "DEBIT ENTRY - $amount";
             $this->addSql("INSERT INTO AccountEntry(account_id, description, amount, created_at) VALUES($accountId, '$description', $amount, '$createdAt') ");

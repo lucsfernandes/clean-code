@@ -11,9 +11,14 @@ class AccountEntryController extends AbstractController
 {
     /**
      * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listAction(Request $request)
     {
-        exit('>>>>>: ' . __CLASS__);
+        $account = $this->container
+            ->get('repository.account')
+            ->find($request->get('id'));
+
+        return $this->renderResponse('account-entry/list.html.twig', ['account' => $account]);
     }
 }

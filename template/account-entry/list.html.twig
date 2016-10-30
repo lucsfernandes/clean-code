@@ -1,0 +1,44 @@
+{% extends 'base/base.html.twig' %}
+{% block title %}<i class="glyphicon glyphicon-usd"></i> {{ account.customer.name }}'s Entries{% endblock %}
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th style="width: 60px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in account.entries %}
+            <tr>
+                <td>{{ entry.createdAt|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entry.description }}</td>
+                <td>$ {{ entry.amount }}</td>
+                <td>
+                    {% if entry.amount < 0 %}
+                    <a class="btn btn-danger" href="" title="Entries" role="button">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}
+{% block footer %}
+    <div class="text-right">
+        <div class="btn-group" role="group" aria-label="...">
+            <a class="btn btn-default" href="/accounts/{{ account.id }}/edit" title="Entries" role="button">
+                Back to account details
+            </a>
+        </div>
+    </div>
+{% endblock %}

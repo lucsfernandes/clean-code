@@ -6,7 +6,7 @@
         <service id="doctrine.cache" class="\Doctrine\Common\Cache\ArrayCache" />
         <service id="doctrine.mapping.locator" class="Doctrine\Common\Persistence\Mapping\Driver\DefaultFileLocator">
             <argument type="collection">
-                <argument>db/Doctrine/Mapping</argument>
+                <argument>%doctrine.mapping.dir%</argument>
             </argument>
             <argument>.dcm.xml</argument>
         </service>

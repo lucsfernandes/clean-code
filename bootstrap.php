@@ -13,6 +13,7 @@ $containerBuilder = new ContainerBuilder();
 $loader = new XmlFileLoader($containerBuilder, $fileLocator);
 $loader->load('all.xml');
 
+$containerBuilder->setParameter('root.path', __DIR__);
 $containerBuilder->set('container', $containerBuilder);
 $containerBuilder->compile();
 

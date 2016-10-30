@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
 			                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
-    <entity name="GSoares\CleanCode\Entity\Account" table="Account" repository-class="GSoares\CleanCode\Entity\Repository\AccountRepository">
+    <entity name="GSoares\CleanCode\Entity\Account" table="Account" repository-class="GSoares\CleanCode\Repository\AccountRepository">
         <indexes>
             <index columns="customer_id" name="UNIQUE_CUSTOMER_ACCOUNT"/>
             <index columns="agency,number" name="UNIQUE_ACCOUNT"/>

@@ -3,19 +3,41 @@
 {% block content %}
     <table class="table">
         <thead>
-            <th>Number</th>
-            <th>Customer</th>
-            <th>Balance</th>
-            <th></th>
+            <tr>
+                <th>Customer</th>
+                <th>Agency</th>
+                <th>Number</th>
+                <th>Balance</th>
+                <th style="width: 160px"></th>
+            </tr>
         </thead>
         <tbody>
-            <td>Number</td>
-            <td>Customer</td>
-            <td>Balance</td>
-            <td></td>
+            {% for account in accounts %}
+            <tr>
+                <td>{{ account.customer.name }}</td>
+                <td>{{ account.agency }}</td>
+                <td>{{ account.number }}</td>
+                <td>$ {{ account.balance }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <a class="btn btn-default" href="/accounts/{{ account.id }}/edit" title="Edit" role="button">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </a>
+                        <a class="btn btn-warning" href="/accounts/{{ account.id }}/entries" title="Entries" role="button">
+                            <i class="glyphicon glyphicon-usd"></i>
+                        </a>
+                        <a class="btn btn-success" href="/accounts/{{ account.id }}/entries/add" title="Add entries" role="button">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
         </tbody>
         <tfoot>
-            <td colspan="4"></td>
+            <tr>
+                <td colspan="5"></td>
+            </tr>
         </tfoot>
     </table>
 {% endblock %}

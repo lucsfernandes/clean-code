@@ -14,7 +14,11 @@ class AccountController extends AbstractController
      */
     public function listAction(Request $request)
     {
-        return $this->renderResponse('account/list.html.twig');
+        $accounts = $this->container
+            ->get('repository.account')
+            ->findAll();
+
+        return $this->renderResponse('account/list.html.twig', ['accounts' => $accounts]);
     }
 
     /**
@@ -30,6 +34,10 @@ class AccountController extends AbstractController
      */
     public function editAction(Request $request)
     {
-        return $this->renderResponse('account/form.html.twig');
+        $account = $this->container
+            ->get('repository.account')
+            ->find($request->get('id'));
+
+        return $this->renderResponse('account/form.html.twig', ['account' => $account]);
     }
 }
