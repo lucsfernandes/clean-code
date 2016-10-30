@@ -1,8 +1,8 @@
 .idea/*
 /vendor/*
 /bin/*
-/public/phpdoc/*
-/public/phpmd/*
+!/public/phpdoc/.gitignore
+!/public/phpmd/.gitignore
 !/bin/generate-doc.sh
 !/bin/generate-md.sh
 !/bin/migrations-diff.sh
