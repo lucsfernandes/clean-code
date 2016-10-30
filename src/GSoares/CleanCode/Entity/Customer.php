@@ -49,6 +49,12 @@ class Customer
      */
     public function setName($name)
     {
+        $name = trim($name);
+
+        if (!preg_match('/[a-z\. ]{3,}/', $name)) {
+            throw new \InvalidArgumentException("Invalid name [$name]");
+        }
+
         $this->name = $name;
     }
 }
