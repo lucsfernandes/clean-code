@@ -22,7 +22,7 @@ class Version20161030002519 extends AbstractMigration
         $this->addSql('ALTER TABLE AccountEntry ADD CONSTRAINT FK_23679E3D9B6B5FBA FOREIGN KEY (account_id) REFERENCES Account (id)');
 
         $firstNames = ['Mary', 'John', 'Phill', 'Natally', 'Bob', 'Paul', 'Mick'];
-        $secondNames = ['Smith', 'Lennon', 'White', 'Black', 'Tomy', 'Stone', 'Tompson'];
+        $secondNames = ['Smith', 'Lennon', 'White', 'Black', 'Petterson', 'Stone', 'Tompson'];
 
         for ($i = 1; $i <= 20; $i++) {
             $this->createFakeAccount(
