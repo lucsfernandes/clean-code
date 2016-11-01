@@ -8,9 +8,10 @@ class CustomerTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @param $name
+     * @param string $name
      * @dataProvider invalidNamesProvider
      * @expectedException \InvalidArgumentException
+     * @test
      */
     public function testSetNameMustThrowExceptionForInvalidName($name)
     {
@@ -33,8 +34,9 @@ class CustomerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $name
+     * @param string $name
      * @dataProvider validNamesProvider
+     * @test
      */
     public function testMustAcceptValidName($name)
     {
@@ -52,5 +54,21 @@ class CustomerTest extends \PHPUnit_Framework_TestCase
             ['John N. Smith'],
             ['Smith. John N.'],
         ];
+    }
+
+    /**
+     * @test
+     */
+    public function testSetInvalidIdentityMustThrowException()
+    {
+        $this->markTestIncomplete("Todo");
+    }
+
+    /**
+     * @test
+     */
+    public function mustAcceptValidIdentity()
+    {
+        $this->markTestIncomplete("Todo");
     }
 }
