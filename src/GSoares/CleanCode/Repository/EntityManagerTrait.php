@@ -21,6 +21,4 @@ trait EntityManagerTrait
     {
         $this->entityManager = $entityManager;
     }
-
-
 }
