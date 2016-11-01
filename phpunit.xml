@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
-<!-- https://phpunit.de/manual/current/pt_br/index.html -->
-<!-- https://phpunit.de/manual/current/pt_br/organizing-tests.html#organizing-tests.xml-configuration -->
 <!-- Possible configurations: https://phpunit.de/manual/current/pt_br/appendixes.configuration.html -->
 <phpunit
     xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
@@ -30,7 +27,6 @@
             <directory>test</directory>
         </testsuite>
     </testsuites>
-
     <filter>
         <whitelist>
             <directory>src/</directory>

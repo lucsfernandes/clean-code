@@ -50,6 +50,12 @@ class Account
      */
     public function setNumber($number)
     {
+        if (!is_numeric($number)) {
+            throw new \InvalidArgumentException(
+                "Account number [" . var_export($number, true) . "] is invalid"
+            );
+        }
+
         $this->number = $number;
     }
 
