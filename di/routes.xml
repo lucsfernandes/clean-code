@@ -18,4 +18,13 @@
     <route id="account_entries" path="/accounts/{id}/entries">
         <default key="_controller">controller.account_entry:listAction</default>
     </route>
+    <route id="code_standards" path="/quality/code-standards">
+        <default key="_controller">controller.quality:codeStandardsAction</default>
+    </route>
+    <route id="mess_control" path="/quality/mess-control">
+        <default key="_controller">controller.quality:messControlAction</default>
+    </route>
+    <route id="doc" path="/quality/doc">
+        <default key="_controller">controller.quality:docAction</default>
+    </route>
 </routes>

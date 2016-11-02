@@ -3,8 +3,8 @@
     <description>Clean Code Code Standards.</description>
     <file>src</file>
     <file>test</file>
-    <generator>HTML</generator>
     <report>summary</report>
+    <bootstrap>bootstrap.php</bootstrap>
     <reportWidth>5</reportWidth>
     <reportFile>public/phpcs/index.html</reportFile>
     <rule ref="PSR2"/>

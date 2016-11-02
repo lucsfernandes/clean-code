@@ -3,10 +3,29 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="service.account_creator" class="GSoares\CleanCode\Service\AccountCreator">
+        <!-- Account -->
+        <service abstract="true" id="service.account.abstract_saver" class="GSoares\CleanCode\Service\Account\AbstractSaver">
+            <argument type="service" id="factory.account" />
+            <argument type="service" id="factory.customer" />
+            <argument type="service" id="doctrine.entity_manager" />
         </service>
-        <service id="app.controller_loader" class="GSoares\CleanCode\Application\Controller\Loader">
-            <tag name="controller.loader" />
+
+        <service id="service.account_creator" abstract="true" parent="service.account.abstract_saver" class="GSoares\CleanCode\Service\Account\Creator">
+        </service>
+
+        <service id="service.account_updater" abstract="true" parent="service.account.abstract_saver" class="GSoares\CleanCode\Service\Account\Updater">
+        </service>
+
+        <!-- Entry -->
+        <service abstract="true" id="service.account_entry.abstract_generator" class="GSoares\CleanCode\Service\AccountEntry\AbstractGenerator">
+            <argument type="service" id="factory.account_entry" />
+            <argument type="service" id="doctrine.entity_manager" />
+        </service>
+
+        <service id="service.credit_generator" abstract="true" parent="service.account_entry.abstract_generator" class="GSoares\CleanCode\Service\Account\Creator">
+        </service>
+
+        <service id="service.debit_generator" abstract="true" parent="service.account_entry.abstract_generator" class="GSoares\CleanCode\Service\Account\Updater">
         </service>
     </services>
 </container>
