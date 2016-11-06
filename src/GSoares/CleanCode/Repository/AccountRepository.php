@@ -2,18 +2,29 @@
 
 namespace GSoares\CleanCode\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class AccountRepository extends EntityRepository
+class AccountRepository extends AbstractRepository
 {
+
     /**
-     * @return int|void
+     * @return Paginator
      */
-    public function getTotal()
+    public function search()
     {
-        return count($this->findAll());
+        $queryBuilder = $this->createQueryBuilder('a')
+            ->innerJoin('a.customer', 'c');
+
+        if ($term = $this->getFilter('term')) {
+            $queryBuilder->andWhere('(c.name LIKE :term OR a.number LIKE :term OR a.agency LIKE :term)')
+                ->setParameter('term', "%$term%");
+        }
+
+        $query = $queryBuilder->getQuery();
+
+        return new Paginator($query);
     }
 }

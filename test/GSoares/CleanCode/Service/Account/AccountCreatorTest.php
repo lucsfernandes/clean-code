@@ -1,21 +1,27 @@
 <?php
-namespace GSoares\CleanCode\Service;
+namespace GSoares\CleanCode\Service\Account;
 
 use Doctrine\ORM\EntityManager;
-use GSoares\CleanCode\Entity\Account;
+use GSoares\CleanCode\Application\Service\DateTime\Retriever;
 
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
 class AccountCreatorTest extends \PHPUnit_Framework_TestCase
 {
+
     /**
      * @var EntityManager|\PHPUnit_Framework_MockObject_MockObject
      */
     private $entityManager;
 
     /**
-     * @var AccountCreator
+     * @var Retriever
+     */
+    protected $currentDateTimeRetriever;
+
+    /**
+     * @var Creator
      */
     private $accountCreator;
 
@@ -34,9 +40,17 @@ class AccountCreatorTest extends \PHPUnit_Framework_TestCase
             false
         );
 
-        $this->accountCreator = new AccountCreator();
-        $this->accountCreator
-            ->setEntityManager($this->entityManager);
+        $this->currentDateTimeRetriever = $this->getMock(
+            'GSoares\CleanCode\Application\Service\DateTime\Retriever',
+            [
+                'retrieveCurrent'
+            ],
+            [],
+            '',
+            false
+        );
+
+        $this->accountCreator = new Creator($this->currentDateTimeRetriever, $this->entityManager);
 
         parent::setUp();
     }

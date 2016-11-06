@@ -11,13 +11,15 @@ class AccountController extends AbstractController
 {
 
     /**
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listAction()
+    public function listAction(Request $request)
     {
         $accounts = $this->container
             ->get('repository.account')
-            ->findAll();
+            ->addFilter('term', $request->get('term'))
+            ->search();
 
         return $this->renderResponse('account/list.html.twig', ['accounts' => $accounts]);
     }

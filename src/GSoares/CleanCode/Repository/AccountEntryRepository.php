@@ -1,13 +1,14 @@
 <?php
 namespace GSoares\CleanCode\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class AccountEntryRepository extends EntityRepository
+class AccountEntryRepository extends AbstractRepository
 {
+
     /**
      * @return int|void
      */
@@ -19,5 +20,17 @@ class AccountEntryRepository extends EntityRepository
             ->getSingleScalarResult();
 
         return $result;
+    }
+
+    /**
+     * @return Paginator
+     */
+    public function search()
+    {
+        $queryBuilder = $this->createQueryBuilder('ae');
+
+        $query = $queryBuilder->getQuery();
+
+        return new Paginator($query);
     }
 }

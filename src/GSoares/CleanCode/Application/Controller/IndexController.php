@@ -15,11 +15,13 @@ class IndexController extends AbstractController
     {
         $totalAccounts = $this->container
             ->get('repository.account')
-            ->getTotal();
+            ->search()
+            ->count();
 
         $totalEntries = $this->container
             ->get('repository.account_entry')
-            ->getTotal();
+            ->search()
+            ->count();
 
         $averageEntries = round($totalEntries / $totalAccounts, 2);
 
