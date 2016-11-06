@@ -5,8 +5,7 @@
     <services>
         <!-- Account -->
         <service abstract="true" id="service.account.abstract_saver" class="GSoares\CleanCode\Service\Account\AbstractSaver">
-            <argument type="service" id="factory.account" />
-            <argument type="service" id="factory.customer" />
+            <argument type="service" id="app.date_time.retriever" />
             <argument type="service" id="doctrine.entity_manager" />
         </service>
 
@@ -18,14 +17,14 @@
 
         <!-- Entry -->
         <service abstract="true" id="service.account_entry.abstract_generator" class="GSoares\CleanCode\Service\AccountEntry\AbstractGenerator">
-            <argument type="service" id="factory.account_entry" />
+            <argument type="service" id="app.date_time.retriever" />
             <argument type="service" id="doctrine.entity_manager" />
         </service>
 
-        <service id="service.credit_generator" abstract="true" parent="service.account_entry.abstract_generator" class="GSoares\CleanCode\Service\Account\Creator">
+        <service id="service.credit_generator" abstract="true" parent="service.account_entry.abstract_generator" class="GSoares\CleanCode\Service\AccountEntry\CreditGenerator">
         </service>
 
-        <service id="service.debit_generator" abstract="true" parent="service.account_entry.abstract_generator" class="GSoares\CleanCode\Service\Account\Updater">
+        <service id="service.debit_generator" abstract="true" parent="service.account_entry.abstract_generator" class="GSoares\CleanCode\Service\AccountEntry\DebitGenerator">
         </service>
     </services>
 </container>
