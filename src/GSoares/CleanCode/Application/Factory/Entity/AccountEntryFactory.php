@@ -1,6 +1,6 @@
 <?php
 
-namespace GSoares\CleanCode\Application\Factory;
+namespace GSoares\CleanCode\Application\Factory\Entity;
 
 use GSoares\CleanCode\Entity\EntityInterface;
 

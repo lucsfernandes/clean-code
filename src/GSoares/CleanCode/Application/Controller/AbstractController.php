@@ -2,14 +2,13 @@
 
 namespace GSoares\CleanCode\Application\Controller;
 
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class AbstractController implements ContainerAwareInterface
+class AbstractController implements ControllerInterface
 {
     use ContainerAwareTrait;
 
@@ -19,7 +18,7 @@ class AbstractController implements ContainerAwareInterface
      * @param int $statusCode
      * @return Response
      */
-    protected function renderResponse($templateFile, array $context = [], $statusCode = 200)
+    public function renderResponse($templateFile, array $context = [], $statusCode = 200)
     {
         $content = $this->container
             ->get('twig.environment')

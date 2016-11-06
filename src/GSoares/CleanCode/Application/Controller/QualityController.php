@@ -2,18 +2,16 @@
 
 namespace GSoares\CleanCode\Application\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
 class QualityController extends AbstractController
 {
+
     /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function codeStandardsAction(Request $request)
+    public function codeStandardsAction()
     {
         return $this->renderResponse(
             'base/iframe.html.twig',
@@ -25,10 +23,9 @@ class QualityController extends AbstractController
     }
 
     /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function messControlAction(Request $request)
+    public function messControlAction()
     {
         return $this->renderResponse(
             'base/iframe.html.twig',
@@ -40,10 +37,9 @@ class QualityController extends AbstractController
     }
 
     /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function docAction(Request $request)
+    public function docAction()
     {
         return $this->renderResponse(
             'base/iframe.html.twig',
@@ -55,10 +51,9 @@ class QualityController extends AbstractController
     }
 
     /**
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function testAction(Request $request)
+    public function testAction()
     {
         return $this->renderResponse(
             'base/iframe.html.twig',

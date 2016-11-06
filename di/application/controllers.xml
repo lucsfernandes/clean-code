@@ -20,9 +20,5 @@
 
         <service id="controller.quality" parent="controller.abstract" class="GSoares\CleanCode\Application\Controller\QualityController">
         </service>
-
-        <service id="app.controller_loader" class="GSoares\CleanCode\Application\Controller\Loader">
-            <tag name="controller.loader" />
-        </service>
     </services>
 </container>

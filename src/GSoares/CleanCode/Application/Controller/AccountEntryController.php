@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AccountEntryController extends AbstractController
 {
+
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="app.factory.entity.customer" class="GSoares\CleanCode\Application\Factory\Entity\CustomerFactory">
+        </service>
+
+        <service id="app.factory.entity.account" class="GSoares\CleanCode\Application\Factory\Entity\AccountFactory">
+        </service>
+
+        <service id="app.factory.entity.account_entry" class="GSoares\CleanCode\Application\Factory\Entity\AccountEntryFactory">
+        </service>
+
+        <service id="app.factory.route.url_matcher" class="GSoares\CleanCode\Application\Factory\Route\UrlMatcher">
+        </service>
+    </services>
+</container>

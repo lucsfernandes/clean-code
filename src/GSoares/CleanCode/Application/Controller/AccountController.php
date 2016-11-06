@@ -9,10 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AccountController extends AbstractController
 {
+
     /**
-     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listAction(Request $request)
+    public function listAction()
     {
         $accounts = $this->container
             ->get('repository.account')
@@ -22,15 +23,16 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function createAction(Request $request)
+    public function createAction()
     {
         return $this->renderResponse('account/form.html.twig');
     }
 
     /**
      * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request)
     {
