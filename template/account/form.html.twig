@@ -3,53 +3,57 @@
     <i class="glyphicon glyphicon-user"></i> {{ account.id ? 'Update' : 'Create' }} Account
 {% endblock %}
 {% block content %}
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-12">
-                <h3>Account</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>
-                            Agency
-                        </label>
-                        <input type="text" name="account_agency" value="{{ account.agency }}" class="form-control">
-                    </div>
-                    <div class="col-md-6">
-                        <label>
-                            Number
-                        </label>
-                        <input type="text" name="account_number" value="{{ account.number }}" class="form-control">
-                    </div>
-                </div>
-                {% if account.id %}
-                    <hr/>
+    <form action="" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <h3>Account</h3>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label>
-                                Balance
+                                Agency
                             </label>
-                            <input type="text" readonly class="form-control" value="$ {{ account.balance }}">
+                            <input type="text" name="account_agency" value="{{ account.agency }}" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label>
+                                Number
+                            </label>
+                            <input type="text" name="account_number" value="{{ account.number }}" class="form-control">
                         </div>
                     </div>
-                {% endif %}
+                    {% if account.id %}
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>
+                                    Balance
+                                </label>
+                                <input type="text" readonly class="form-control" value="$ {{ account.balance }}">
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    {% include 'customer/form.html.twig' with { customer : account.customer } %}
+                </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="col-md-12">
-                {% include 'customer/form.html.twig' with { customer : account.customer } %}
-            </div>
-        </div>
-    </div>
+    </form>
 {% endblock %}
 {% block footer %}
     <div class="text-right">
-        <div class="btn-group" role="group" aria-label="...">
+        <div class="btn-group" role="group">
             <a class="btn btn-default" href="/accounts" title="Accounts" role="button">
                 Account list
             </a>
+            {% if account.id %}
             <a class="btn btn-warning" href="/accounts/{{ account.id }}/entries" title="Entries" role="button">
                 Entries
             </a>
+            {% endif %}
         </div>
         <button class="btn btn-primary" title="Save" role="button">
             Save
