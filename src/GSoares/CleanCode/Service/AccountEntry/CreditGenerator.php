@@ -11,10 +11,11 @@ class CreditGenerator extends AbstractGenerator
 {
 
     /**
-     * @param array $data
+     * @param AccountEntry $accountEntry
+     * @param $amount
      * @return AccountEntry
      */
-    public function generate(array $data)
+    public function generate(AccountEntry $accountEntry, $amount)
     {
         // TODO: Implement generate() method.
     }

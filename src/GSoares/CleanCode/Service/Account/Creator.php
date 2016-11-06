@@ -11,10 +11,10 @@ class Creator extends AbstractSaver
 {
 
     /**
-     * @param array $data
+     * @param Account $account
      * @return Account
      */
-    public function save(array $data)
+    public function save(Account $account)
     {
         // TODO: Implement save() method.
     }

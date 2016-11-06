@@ -3,25 +3,19 @@
 namespace GSoares\CleanCode\Service\Account;
 
 use Doctrine\ORM\EntityManagerInterface;
+use GSoares\CleanCode\Application\Service\DateTime\CurrentRetrieverInterface;
 use GSoares\CleanCode\Entity\Account;
-use GSoares\CleanCode\Factory\AccountFactory;
-use GSoares\CleanCode\Factory\CustomerFactory;
 
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-abstract class AbstractSaver
+abstract class AbstractSaver implements SaverInterface
 {
 
     /**
-     * @var AccountFactory
+     * @var CurrentRetrieverInterface
      */
-    protected $accountFactory;
-
-    /**
-     * @var CustomerFactory
-     */
-    protected $customerFactory;
+    protected $currentDateTimeRetriever;
 
     /**
      * @var EntityManagerInterface
@@ -29,18 +23,39 @@ abstract class AbstractSaver
     protected $entityManager;
 
     public function __construct(
-        AccountFactory $accountFactory,
-        CustomerFactory $customerFactory,
+        CurrentRetrieverInterface $currentDateTimeRetriever,
         EntityManagerInterface $entityManager
     ) {
-        $this->accountFactory = $accountFactory;
-        $this->customerFactory = $customerFactory;
+        $this->currentDateTimeRetriever = $currentDateTimeRetriever;
         $this->entityManager = $entityManager;
     }
 
     /**
-     * @param array $data
+     * @param Account $account
      * @return Account
+     * @throws \Exception
      */
-    abstract public function save(array $data);
+    protected function persist(Account $account)
+    {
+        try {
+            $this->entityManager
+                ->beginTransaction();
+
+            $this->entityManager
+                ->persist($account);
+
+            $this->entityManager
+                ->flush($account);
+
+            $this->entityManager
+                ->commit();
+
+            return $account;
+        } catch (\Exception $e) {
+            $this->entityManager
+                ->rollback();
+
+            throw $e;
+        }
+    }
 }

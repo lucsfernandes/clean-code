@@ -4,7 +4,7 @@ namespace GSoares\CleanCode\Entity;
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class Customer
+class Customer implements EntityInterface
 {
     use IdTrait;
     use ModificationTimeTrait;
@@ -56,5 +56,13 @@ class Customer
         }
 
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return "Customer {$this->getName()}";
     }
 }

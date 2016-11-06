@@ -27,4 +27,7 @@
     <route id="doc" path="/quality/doc">
         <default key="_controller">controller.quality:docAction</default>
     </route>
+    <route id="test" path="/quality/test">
+        <default key="_controller">controller.quality:testAction</default>
+    </route>
 </routes>

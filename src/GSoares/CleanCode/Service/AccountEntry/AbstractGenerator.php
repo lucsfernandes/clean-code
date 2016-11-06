@@ -3,19 +3,19 @@
 namespace GSoares\CleanCode\Service\AccountEntry;
 
 use Doctrine\ORM\EntityManagerInterface;
+use GSoares\CleanCode\Application\Service\DateTime\CurrentRetrieverInterface;
 use GSoares\CleanCode\Entity\AccountEntry;
-use GSoares\CleanCode\Factory\AccountEntryFactory;
 
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-abstract class AbstractGenerator
+abstract class AbstractGenerator implements GeneratorInterface
 {
 
     /**
-     * @var AccountEntryFactory
+     * @var CurrentRetrieverInterface
      */
-    protected $accountEntryFactory;
+    protected $currentDateTimeRetriever;
 
     /**
      * @var EntityManagerInterface
@@ -23,25 +23,44 @@ abstract class AbstractGenerator
     protected $entityManager;
 
     public function __construct(
-        AccountEntryFactory $accountEntryFactory,
+        CurrentRetrieverInterface $currentDateTimeRetriever,
         EntityManagerInterface $entityManager
     ) {
-        $this->accountEntryFactory = $accountEntryFactory;
+        $this->currentDateTimeRetriever = $currentDateTimeRetriever;
         $this->entityManager = $entityManager;
     }
 
     /**
-     * @param array $data
-     * @return AccountEntry
-     */
-    abstract public function generate(array $data);
-
-    /**
      * @param AccountEntry $accountEntry
      * @return AccountEntry
+     * @throws \Exception
      */
     protected function persist(AccountEntry $accountEntry)
     {
-        //TODO
+        try {
+            $this->entityManager
+                ->beginTransaction();
+
+            $currentDateTime = $this->currentDateTimeRetriever
+                ->retrieveCurrent();
+
+            $accountEntry->setCreatedAt($currentDateTime);
+
+            $this->entityManager
+                ->persist($accountEntry);
+
+            $this->entityManager
+                ->flush($accountEntry);
+
+            $this->entityManager
+                ->commit();
+
+            return $accountEntry;
+        } catch (\Exception $e) {
+            $this->entityManager
+                ->rollback();
+
+            throw $e;
+        }
     }
 }

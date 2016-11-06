@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class Account
+class Account implements EntityInterface
 {
     use IdTrait;
     use ModificationTimeTrait;
@@ -121,5 +121,13 @@ class Account
     public function setCustomer(Customer $customer)
     {
         $this->customer = $customer;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return "Account {$this->getNumber()}";
     }
 }

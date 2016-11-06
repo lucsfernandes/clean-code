@@ -7,7 +7,7 @@ use GSoares\CleanCode\Entity\AccountEntry;
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class DebitGenerator extends AbstractGenerator
+interface GeneratorInterface
 {
 
     /**
@@ -15,9 +15,5 @@ class DebitGenerator extends AbstractGenerator
      * @param $amount
      * @return AccountEntry
      */
-    public function generate(AccountEntry $accountEntry, $amount)
-    {
-        // TODO: Validate account balance
-        // TODO: Implement generate() method.
-    }
+    public function generate(AccountEntry $accountEntry, $amount);
 }

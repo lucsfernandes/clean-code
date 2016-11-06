@@ -4,7 +4,7 @@ namespace GSoares\CleanCode\Entity;
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class AccountEntry
+class AccountEntry implements EntityInterface
 {
     use IdTrait;
     use ModificationTimeTrait;
@@ -50,5 +50,13 @@ class AccountEntry
     public function setAmount($amount)
     {
         $this->amount = $amount;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return "AccountEntry {$this->getDescription()}";
     }
 }

@@ -53,4 +53,19 @@ class QualityController extends AbstractController
             ]
         );
     }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function testAction(Request $request)
+    {
+        return $this->renderResponse(
+            'base/iframe.html.twig',
+            [
+                'title' => 'Documentation',
+                'url' => '/phpunit/testdox.html'
+            ]
+        );
+    }
 }

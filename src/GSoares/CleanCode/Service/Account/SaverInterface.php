@@ -7,15 +7,12 @@ use GSoares\CleanCode\Entity\Account;
 /**
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class Updater extends AbstractSaver
+interface SaverInterface
 {
 
     /**
      * @param Account $account
      * @return Account
      */
-    public function save(Account $account)
-    {
-        // TODO: Implement save() method.
-    }
+    public function save(Account $account);
 }
