@@ -7,6 +7,7 @@
         <import resource="application/factory.xml" />
         <import resource="application/template.xml" />
         <import resource="application/response.xml" />
+        <import resource="application/config.xml" />
         <import resource="services.xml" />
         <import resource="database.xml" />
         <import resource="repository.xml" />

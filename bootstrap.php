@@ -17,4 +17,10 @@ $containerBuilder->setParameter('root.path', __DIR__);
 $containerBuilder->set('container', $containerBuilder);
 $containerBuilder->compile();
 
+$containerBuilder->get('app.response.loader')
+    ->setContainer($containerBuilder);
+
+$containerBuilder->get('app.factory.route.url_matcher')
+    ->setContainer($containerBuilder);
+
 return $containerBuilder;

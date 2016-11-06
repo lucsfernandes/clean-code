@@ -5,7 +5,7 @@
     <services>
         <service id="twig.loader" class="Twig_Loader_Filesystem">
             <argument type="collection">
-                <argument>../../template</argument>
+                <argument>%root.path%/template</argument>
             </argument>
         </service>
 

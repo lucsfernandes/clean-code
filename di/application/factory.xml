@@ -12,7 +12,9 @@
         <service id="app.factory.entity.account_entry" class="GSoares\CleanCode\Application\Factory\Entity\AccountEntryFactory">
         </service>
 
-        <service id="app.factory.route.url_matcher" class="GSoares\CleanCode\Application\Factory\Route\UrlMatcher">
+        <service id="app.factory.route.url_matcher" class="GSoares\CleanCode\Application\Factory\Route\UrlMatcherFactory">
+            <argument type="service" id="app.route.xml_file_loader"/>
+            <argument type="service" id="app.route.request_context"/>
         </service>
     </services>
 </container>

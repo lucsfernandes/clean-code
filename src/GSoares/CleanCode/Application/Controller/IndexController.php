@@ -7,7 +7,7 @@ namespace GSoares\CleanCode\Application\Controller;
  */
 class IndexController extends AbstractController
 {
-    
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */

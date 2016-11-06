@@ -6,12 +6,37 @@
     <div class="row">
         <div class="col-md-6">
             <div class="col-md-12">
-                {% include 'account/account-form.html.twig' %}
+                <h3>Account</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>
+                            Agency
+                        </label>
+                        <input type="text" name="account_agency" value="{{ account.agency }}" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>
+                            Number
+                        </label>
+                        <input type="text" name="account_number" value="{{ account.number }}" class="form-control">
+                    </div>
+                </div>
+                {% if account.id %}
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>
+                                Balance
+                            </label>
+                            <input type="text" readonly class="form-control" value="$ {{ account.balance }}">
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-6">
             <div class="col-md-12">
-                {% include 'account/customer-form.html.twig' with { customer : account.customer } %}
+                {% include 'customer/form.html.twig' with { customer : account.customer } %}
             </div>
         </div>
     </div>
