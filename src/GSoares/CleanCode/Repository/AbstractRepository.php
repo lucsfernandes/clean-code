@@ -14,7 +14,7 @@ abstract class AbstractRepository extends EntityRepository implements Repository
     /**
      * @var array
      */
-    private $filters;
+    private $filters = [];
 
     /**
      * @param int $id
