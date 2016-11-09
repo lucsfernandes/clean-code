@@ -17,6 +17,16 @@ class CreditGenerator extends AbstractGenerator
      */
     public function generate(AccountEntry $accountEntry, $amount)
     {
+        if (!is_numeric($amount)) {
+                throw new \Exception("Amount is not allowed");
+        }
+
+        if ($amount <= 0) {
+            throw new \Exception("Negative amount is not allowed");
+        }
+
+
+
         // TODO: Implement generate() method.
     }
 }
